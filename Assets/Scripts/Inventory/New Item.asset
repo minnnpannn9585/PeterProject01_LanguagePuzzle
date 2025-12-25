@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Item
   m_EditorClassIdentifier: 
   itemName: aaa
-  itemIcon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  itemIcon: {fileID: 21300000, guid: d17febd4a82ae514cbb4c2a308cd5812, type: 3}
   itemID: 0

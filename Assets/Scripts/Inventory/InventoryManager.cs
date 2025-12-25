@@ -4,53 +4,59 @@ using UnityEngine;
 
 public class InventoryManager : MonoBehaviour
 {
-    // 单例实例
+    // Singleton instance
     public static InventoryManager Instance;
 
-    // 背包格子数量（可自定义）
+    // Inventory configuration
     public int inventorySize = 20;
-    public List<ItemData> inventorySlots = new List<ItemData>();
+    public List<ItemData> inventorySlots;
 
-    // 物品添加后触发UI刷新事件
+    // Events for UI / listeners
     public event Action OnInventoryChanged;
+    public event Action<int, ItemData> OnSlotChanged;
 
     private void Awake()
     {
-        // 单例初始化
+        DontDestroyOnLoad(gameObject);
+
+        inventorySlots = new List<ItemData>(inventorySize);
+
+        for (int i = 0; i < inventorySize; i++)
+        {
+            inventorySlots.Add(null);
+        }
+
         if (Instance == null)
         {
-            Instance = this;
-            DontDestroyOnLoad(gameObject); // 跨场景保留
+            Instance = this;   
         }
-        else
+        else if (Instance != this)
         {
             Destroy(gameObject);
         }
-
-        // 初始化背包空槽位
-        for (int i = 0; i < inventorySize; i++)
-        {
-            inventorySlots.Add(null); // 初始所有槽位为空
-        }
     }
 
-    
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
+    }
+
+    // Adds an item to the first empty slot. Returns true when added.
     public bool AddItem(ItemData item)
     {
-        // 遍历找第一个空槽位
+        if (item == null) return false;
+
         for (int i = 0; i < inventorySlots.Count; i++)
         {
             if (inventorySlots[i] == null)
             {
                 inventorySlots[i] = item;
-                Debug.Log("拾取物品：" + item.itemName);
-                OnInventoryChanged?.Invoke(); // 触发UI刷新
+                OnSlotChanged?.Invoke(i, item);
+                OnInventoryChanged?.Invoke();
                 return true;
             }
         }
-
-        // 背包已满
-        Debug.LogWarning("背包已满，无法拾取：" + item.itemName);
         return false;
     }
 }

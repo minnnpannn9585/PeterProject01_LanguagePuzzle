@@ -23,7 +23,11 @@ public class PlayerMove : MonoBehaviour
         float inputY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(inputX, inputY).normalized;
 
-        TurnOnOffBag();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            TurnOnOffBag();
+        }
+        
     }
 
     void FixedUpdate()
@@ -31,13 +35,10 @@ public class PlayerMove : MonoBehaviour
         rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.fixedDeltaTime);
     }
 
-    void TurnOnOffBag()
-    {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
-            isOpen = !isOpen;
-            bagUI.SetActive(isOpen);
-        }
+    public void TurnOnOffBag()
+    { 
+        isOpen = !isOpen; 
+        bagUI.SetActive(isOpen);
         
     }
 }

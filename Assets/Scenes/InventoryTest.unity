@@ -1106,7 +1106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447e0459950c44c2fa76ee81cb4da52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 2320a9caff9cb4a60951ef217b5afac4, type: 2}
+  itemData: {fileID: 11400000, guid: a8a1dd8259c1a4e1f94ee739eb5b7da7, type: 2}
 --- !u!60 &512296937
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1785,7 +1785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 447e0459950c44c2fa76ee81cb4da52b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemData: {fileID: 11400000, guid: 2320a9caff9cb4a60951ef217b5afac4, type: 2}
+  itemData: {fileID: 11400000, guid: b78b02d7ff3fa4024ba0c58cb57694ca, type: 2}
 --- !u!60 &1213648653
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -2066,6 +2066,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   puzzleCanvas: {fileID: 125100661}
+  insideItemArea: 0
+  insidePuzzleArea: 0
+  itemPickup: {fileID: 0}
 --- !u!1 &1344705441
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class InventorySlot : MonoBehaviour
 {
@@ -29,8 +30,9 @@ public class InventorySlot : MonoBehaviour
         }
         else
         {
+            icon.transform.GetChild(0).GetComponent<TMP_Text>().text = item.itemName;
             // Assign and ensure visible
-            icon.sprite = item.itemIcon;
+            //icon.sprite = item.itemIcon;
             icon.enabled = true;
             icon.color = Color.white; // ensure not transparent
             icon.gameObject.SetActive(true);

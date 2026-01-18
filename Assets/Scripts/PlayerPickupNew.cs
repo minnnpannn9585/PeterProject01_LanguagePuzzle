@@ -1,13 +1,16 @@
-using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPickup : MonoBehaviour
+public class PlayerPickupNew : MonoBehaviour
 {
     public GameObject puzzleCanvas;
 
-    public bool insideItemArea = false;
-    public bool insidePuzzleArea = false;
-    public ItemPickup itemPickup;
+    bool insideItemArea = false;
+    bool insidePuzzleArea = false;
+    
+    public ClueItem clue;
+    
 
     private void Update()
     {
@@ -21,7 +24,7 @@ public class PlayerPickup : MonoBehaviour
             if (insideItemArea)
             {
                 
-                itemPickup.AddItem();
+                
             }
         }
     }
@@ -32,7 +35,7 @@ public class PlayerPickup : MonoBehaviour
         if (other.CompareTag("Item"))
         {
             insideItemArea = true;
-            itemPickup = other.GetComponent<ItemPickup>();
+            clue = other.gameObject.GetComponent<ClueItem>();
         }
 
         if (other.CompareTag("Puzzle"))

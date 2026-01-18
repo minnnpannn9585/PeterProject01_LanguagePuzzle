@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 83b1e15b04e5841b6ad673f6d4e3623c, type: 3}
-  m_Name: New Item
+  m_Name: New Item 7
   m_EditorClassIdentifier: 
-  itemName: Kuba
-  itemIcon: {fileID: 979618746, guid: 38961358582474aedb83f125b0097d9a, type: 3}
+  itemName: 
+  itemIcon: {fileID: 1325394445, guid: 38961358582474aedb83f125b0097d9a, type: 3}
   itemID: 0

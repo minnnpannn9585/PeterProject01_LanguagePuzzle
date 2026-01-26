@@ -22,8 +22,17 @@ public class PlayerMove : MonoBehaviour
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(inputX, inputY).normalized;
+        if (inputX > 0)
+        {
+            transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = true;
+        }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (inputX < 0)
+        {
+            transform.GetChild(1).GetComponent<SpriteRenderer>().flipX = false;
+        }
+
+        if (Input.GetKeyDown(KeyCode.B))
         {
             TurnOnOffBag();
         }

@@ -20,15 +20,8 @@ public class InventorySlot : MonoBehaviour
 
     public void SetItem(ItemData item)
     {
-
-        if (item == null || item.itemIcon == null)
-        {
-            // Clear visual
-            icon.sprite = null;
-            icon.enabled = false;
-            icon.gameObject.SetActive(false);
-        }
-        else
+        //print(icon.gameObject.name);
+        if (item!=null)
         {
             icon.transform.GetChild(0).GetComponent<TMP_Text>().text = item.itemName;
             // Assign and ensure visible
@@ -39,5 +32,11 @@ public class InventorySlot : MonoBehaviour
             // Optional: make the Image match sprite native size
             icon.SetNativeSize();
         }
+        else
+        {
+            icon.transform.GetChild(0).GetComponent<TMP_Text>().text = null;
+        }
+        
+
     }
 }

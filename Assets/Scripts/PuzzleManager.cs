@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 拼图管理器：仅检测关键碎片是否全部就位
+// 拼图管理器：仅检测关键碎片是否全部就位（且放到正确位置）
 public class PuzzleManager : MonoBehaviour
 {
     [Header("管理器配置")]
@@ -18,23 +18,23 @@ public class PuzzleManager : MonoBehaviour
         }
     }
 
-    // 检测拼图是否全部完成（仅检查关键碎片）
+    // 检测拼图是否全部完成（仅检查关键碎片是否放到正确位置）
     public void CheckPuzzleCompletion()
     {
         bool isAllComplete = true;
 
-        // 遍历所有碎片，只检查关键碎片的吸附状态
+        // 遍历所有碎片，只检查关键碎片是否“正确”就位
         foreach (PuzzlePiece piece in allPuzzlePieces)
         {
-            if (piece.IsRequiredPiece() && !piece.IsSnapped())
+            if (piece.IsRequiredPiece() && !piece.IsSnappedCorrectly())
             {
-                // 只要有一个关键碎片未就位，就判定未完成
+                // 只要有一个关键碎片未正确就位，就判定未完成
                 isAllComplete = false;
                 break;
             }
         }
 
-        // 所有关键碎片就位则提示成功
+        // 所有关键碎片放到正确位置则提示成功
         if (isAllComplete)
         {
             if (completionText != null)

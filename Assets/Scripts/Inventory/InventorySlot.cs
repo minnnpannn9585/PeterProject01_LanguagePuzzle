@@ -8,6 +8,7 @@ public class InventorySlot : MonoBehaviour
 {
     [Header("UI References")]
     public Image icon;
+    public GameObject itemUI;
 
     private void Awake()
     {
@@ -16,6 +17,8 @@ public class InventorySlot : MonoBehaviour
         {
             icon = GetComponent<Image>();
         }
+        
+        //itemUI = GameObject.FindGameObjectWithTag("ItemUI");
     }
 
     public void SetItem(ItemData item)
@@ -38,5 +41,10 @@ public class InventorySlot : MonoBehaviour
         }
         
 
+    }
+
+    public void TurnOnItemUI()
+    {
+        itemUI.SetActive(true);
     }
 }

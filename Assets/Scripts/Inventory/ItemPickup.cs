@@ -3,6 +3,7 @@ using UnityEngine;
 public class ItemPickup : MonoBehaviour
 {
     public ItemData[] itemData;
+    
 
     public void AddItem()
     {
@@ -11,6 +12,11 @@ public class ItemPickup : MonoBehaviour
             InventoryManager.Instance.AddItem(itemData);
         }
         
+    }
+
+    public void ItemPicked()
+    {
+        GetComponent<PolygonCollider2D>().enabled = false;
     }
     
 }

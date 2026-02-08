@@ -20,8 +20,8 @@ public class PlayerPickup : MonoBehaviour
 
             if (insideItemArea)
             {
-                
                 itemPickup.AddItem();
+                itemPickup.ItemPicked();
             }
         }
     }

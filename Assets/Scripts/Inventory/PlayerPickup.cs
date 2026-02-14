@@ -13,13 +13,16 @@ public class PlayerPickup : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.F))
         {
+            print(111);
             if (insidePuzzleArea)
             {
                 puzzleCanvas.SetActive(true);
+                
             }
 
             if (insideItemArea)
             {
+                print(222);
                 itemPickup.AddItem();
                 itemPickup.ItemPicked();
             }

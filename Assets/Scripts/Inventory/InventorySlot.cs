@@ -18,7 +18,7 @@ public class InventorySlot : MonoBehaviour
             icon = GetComponent<Image>();
         }
         
-        //itemUI = GameObject.FindGameObjectWithTag("ItemUI");
+        itemUI = GameObject.FindGameObjectWithTag("ItemUI").transform.GetChild(0).gameObject;
     }
 
     public void SetItem(ItemData item)

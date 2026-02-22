@@ -19,6 +19,11 @@ public class PlayerMove : MonoBehaviour
     }
     void Update()
     {
+        if (!GameManager.Instance.isGameStarted)
+        {
+            return;
+        }
+
         float inputX = Input.GetAxisRaw("Horizontal");
         float inputY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(inputX, inputY).normalized;

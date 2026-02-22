@@ -8,6 +8,8 @@ public class PlayerPickup : MonoBehaviour
     public bool insideItemArea = false;
     public bool insidePuzzleArea = false;
     public ItemPickup itemPickup;
+    public GameObject hintText;
+    public GameObject hintvfx;
 
     private void Update()
     {
@@ -32,6 +34,8 @@ public class PlayerPickup : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
+        hintText.SetActive(true);
+        hintvfx.SetActive(true);
         if (other.CompareTag("Item"))
         {
             insideItemArea = true;
@@ -46,6 +50,8 @@ public class PlayerPickup : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
+        hintText.SetActive(false);
+        hintvfx.SetActive(false);
         if (other.CompareTag("Puzzle"))
         {
             insidePuzzleArea = false;

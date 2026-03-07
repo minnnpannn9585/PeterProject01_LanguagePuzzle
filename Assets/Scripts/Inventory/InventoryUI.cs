@@ -28,7 +28,7 @@ public class InventoryUI : MonoBehaviour
 
         if (slotsParent.childCount > 0)
         {
-            // Use existing children as slots
+            int index = 0;
             foreach (Transform child in slotsParent)
             {
                 InventorySlot s = child.GetComponent<InventorySlot>();
@@ -37,7 +37,10 @@ public class InventoryUI : MonoBehaviour
                     Debug.LogWarning($"InventoryUI: child '{child.name}' missing InventorySlot -> adding one.");
                     s = child.gameObject.AddComponent<InventorySlot>();
                 }
+
+                s.slotIndex = index;   // 每个已有 Slot 在 Awake 时就有固定 index
                 uiSlots.Add(s);
+                index++;
             }
         }
         else if (slotPrefab != null && InventoryManager.Instance != null)
@@ -49,10 +52,10 @@ public class InventoryUI : MonoBehaviour
                 GameObject go = Instantiate(slotPrefab, slotsParent);
                 InventorySlot s = go.GetComponent<InventorySlot>();
                 if (s == null) s = go.AddComponent<InventorySlot>();
+                s.slotIndex = i;
                 uiSlots.Add(s);
             }
         }
-
     }
 
     private void OnEnable()
@@ -66,7 +69,7 @@ public class InventoryUI : MonoBehaviour
         if (InventoryManager.Instance != null)
         {
             InventoryManager.Instance.OnInventoryChanged -= RefreshUI;
-            InventoryManager.Instance.OnSlotChanged -= OnSlotChangedHandler;
+            //InventoryManager.Instance.OnSlotChanged -= OnSlotChangedHandler;
         }
     }
 
@@ -90,9 +93,8 @@ public class InventoryUI : MonoBehaviour
             InventoryManager.Instance.OnInventoryChanged -= RefreshUI;
             InventoryManager.Instance.OnInventoryChanged += RefreshUI;
 
-            InventoryManager.Instance.OnSlotChanged -= OnSlotChangedHandler;
-            InventoryManager.Instance.OnSlotChanged += OnSlotChangedHandler;
-
+            //InventoryManager.Instance.OnSlotChanged -= OnSlotChangedHandler;
+            //InventoryManager.Instance.OnSlotChanged += OnSlotChangedHandler;
         }
     }
 
@@ -106,20 +108,23 @@ public class InventoryUI : MonoBehaviour
         // Update visible slots
         for (int i = 0; i < count; i++)
         {
+            uiSlots[i].slotIndex = i; // 确保 slotIndex 正确
             uiSlots[i].SetItem(slots[i]);
-            
         }
 
         // If UI has more slots than inventory, clear the rest
         for (int i = count; i < uiSlots.Count; i++)
         {
+            uiSlots[i].slotIndex = i;
             uiSlots[i].SetItem(null);
-            
         }
+
+        Debug.Log("InventoryUI refreshed: " + count + " slots updated.");
     }
 
     private void OnSlotChangedHandler(int index, ItemData item)
     {
+        uiSlots[index].slotIndex = index;
         uiSlots[index].SetItem(item);
     }
 }

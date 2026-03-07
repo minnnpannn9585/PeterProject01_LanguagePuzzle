@@ -10,7 +10,7 @@ public class ItemPickup : MonoBehaviour
         foreach (ItemData itemData in itemData)
         {
             InventoryManager.Instance.AddItem(itemData);
-            print(333);
+            //print(333);
         }
         
     }

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Item 5
   m_EditorClassIdentifier: 
   itemName: Wu
-  itemIcon: {fileID: -452785386, guid: 38961358582474aedb83f125b0097d9a, type: 3}
+  itemIcon: {fileID: 21300000, guid: 75869d78b60624bb58c8a25059c6106a, type: 3}
   itemID: 0

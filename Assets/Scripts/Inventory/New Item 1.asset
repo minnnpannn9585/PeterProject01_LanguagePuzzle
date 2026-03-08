@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Item 1
   m_EditorClassIdentifier: 
   itemName: Dogo
-  itemIcon: {fileID: -1896162835, guid: 38961358582474aedb83f125b0097d9a, type: 3}
+  itemIcon: {fileID: 21300000, guid: ba528789a5956448fad2c269f0f03207, type: 3}
   itemID: 0

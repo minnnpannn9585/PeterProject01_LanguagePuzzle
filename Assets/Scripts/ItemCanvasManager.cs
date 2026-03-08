@@ -21,7 +21,7 @@ public class ItemCanvasManager : MonoBehaviour
         if (itemIcon != null)
         {
             itemIcon.sprite = dataIcon;
-            itemIcon.SetNativeSize();
+            //itemIcon.SetNativeSize();
         }
         if (itemNameText != null)
         {

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: New Item 8
   m_EditorClassIdentifier: 
   itemName: ~ni
-  itemIcon: {fileID: 1858340750, guid: 38961358582474aedb83f125b0097d9a, type: 3}
+  itemIcon: {fileID: 21300000, guid: a57307c51af0a45dd8d67c102d8ca7b2, type: 3}
   itemID: 0

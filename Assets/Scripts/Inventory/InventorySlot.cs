@@ -48,18 +48,18 @@ public class InventorySlot : MonoBehaviour
             TMP_Text textComp = icon.transform.GetChild(0).GetComponent<TMP_Text>();
             if (textComp != null)
                 textComp.text = item.itemName;
-            icon.sprite = item.itemIcon;
+            //icon.sprite = item.itemIcon;
             icon.enabled = true;
             icon.color = Color.white;
             icon.gameObject.SetActive(true);
-            icon.SetNativeSize();
+            //icon.SetNativeSize();
         }
         else
         {
             TMP_Text textComp = icon.transform.GetChild(0).GetComponent<TMP_Text>();
             if (textComp != null)
                 textComp.text = null;
-            icon.sprite = null;
+            //icon.sprite = null;
             itemData = null;
         }
 

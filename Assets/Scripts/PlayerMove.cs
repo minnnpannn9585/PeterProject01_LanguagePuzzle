@@ -12,6 +12,8 @@ public class PlayerMove : MonoBehaviour
     public bool isOpen = false;
     public GameObject bagUI;
 
+    public GameObject uiClickSound;
+
     void Start(){
 
         rb = GetComponent<Rigidbody2D>();
@@ -53,6 +55,6 @@ public class PlayerMove : MonoBehaviour
     { 
         isOpen = !isOpen; 
         bagUI.SetActive(isOpen);
-        
+        Instantiate(uiClickSound, Vector3.zero, Quaternion.identity);
     }
 }

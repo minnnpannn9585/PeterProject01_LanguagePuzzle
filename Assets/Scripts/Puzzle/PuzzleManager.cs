@@ -41,7 +41,6 @@ public class PuzzleManager : MonoBehaviour
             {
                 completionText.text = "拼图成功！";
             }
-            Debug.Log("恭喜！拼图完成！");
         }
     }
 

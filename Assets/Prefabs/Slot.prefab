@@ -227,6 +227,7 @@ MonoBehaviour:
   icon: {fileID: 4187816232994000722}
   itemUI: {fileID: 0}
   slotIndex: 0
+  slotClickSound: {fileID: 3331585992580060079, guid: 7c8ef9da1f5414a0782160ab83efe513, type: 3}
 --- !u!114 &-650802793289855574
 MonoBehaviour:
   m_ObjectHideFlags: 0

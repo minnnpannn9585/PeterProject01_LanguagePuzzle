@@ -17,8 +17,8 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
     private Transform originalParent; // 原始父对象
     private Vector3 originalLocalPosition; // 原始本地位置
     private Vector3 originalLocalScale; // 原始本地缩放
-    private bool isSnapped = false; // 是否已吸附
-    private bool isMatched = false; // 是否id匹配
+    public bool isSnapped = false; // 是否已吸附
+    public bool isMatched = false; // 是否id匹配
 
     void Awake()
     {
@@ -27,6 +27,13 @@ public class PuzzlePiece : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndD
         originalParent = transform.parent;
         originalLocalPosition = transform.localPosition;
         originalLocalScale = transform.localScale;
+        if(pieceID == 0 || pieceID == 2){
+            isRequired = true;
+        }
+        else
+        {
+            isRequired = false;
+        }
     }
 
     // 开始拖拽时调用

@@ -10,6 +10,7 @@ public class PlayerPickup : MonoBehaviour
     public ItemPickup itemPickup;
     public GameObject hintText;
     public GameObject hintvfx;
+    public GameObject unlockSound;
 
     private void Update()
     {
@@ -19,7 +20,7 @@ public class PlayerPickup : MonoBehaviour
             if (insidePuzzleArea)
             {
                 puzzleCanvas.SetActive(true);
-                
+                Instantiate(unlockSound, Vector3.zero, Quaternion.identity);
             }
 
             if (insideItemArea)
@@ -27,6 +28,7 @@ public class PlayerPickup : MonoBehaviour
                 print(222);
                 itemPickup.AddItem();
                 itemPickup.ItemPicked();
+                Instantiate(unlockSound, Vector3.zero, Quaternion.identity);
             }
         }
     }

@@ -16,6 +16,8 @@ public class InventorySlot : MonoBehaviour
     private ItemCanvasManager itemCanvasManager;
     public int slotIndex;
 
+    public GameObject slotClickSound;
+
     private void Awake()
     {
         if (icon == null)
@@ -90,6 +92,7 @@ public class InventorySlot : MonoBehaviour
 
     private void OnSlotClicked()
     {
+        Instantiate(slotClickSound, Vector3.zero, Quaternion.identity);
         if (itemUI != null)
             itemUI.SetActive(true);
         if (itemCanvasManager == null)

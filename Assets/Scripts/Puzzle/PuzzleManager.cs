@@ -70,6 +70,13 @@ public class PuzzleManager : MonoBehaviour
 
             // 碎片 id \= 物品 id（用于和 PuzzleTarget.targetID 匹配）
             piece.pieceID = item.itemID;
+            if(piece.pieceID == 0 || piece.pieceID == 2){
+                piece.isRequired = true;
+            }
+            else
+            {
+                piece.isRequired = false;
+            }
 
             // 名字显示：写到子物体上的 TMP_Text（不依赖 Image）
             TMP_Text nameText = piece.GetComponentInChildren<TMP_Text>(true);

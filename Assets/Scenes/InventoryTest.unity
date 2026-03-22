@@ -14504,6 +14504,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1170330555877238112, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: targetID
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1292082890663402993, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
       propertyPath: m_Name
       value: PuzzleCanvas
@@ -14524,6 +14528,46 @@ PrefabInstance:
       propertyPath: piecePrefab
       value: 
       objectReference: {fileID: 6485058833658975154, guid: 8c9cf6fe1a67c41bea8badabbdcd4bd6, type: 3}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[0]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[3]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[4]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[5]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[6]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[7]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[8]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2681978764243975736, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: allPuzzlePieces.Array.data[9]
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5353889242563693179, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
       propertyPath: m_Name
       value: PuzzlePiece
@@ -14649,7 +14693,10 @@ PrefabInstance:
     - {fileID: 4848549860364619136, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
     - {fileID: 5353889242563693179, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5445293435434794618, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1231201144}
   m_SourcePrefab: {fileID: 100100000, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
 --- !u!1 &1231201141 stripped
 GameObject:
@@ -14661,6 +14708,37 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7018151871711178858, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
   m_PrefabInstance: {fileID: 1231201140}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1231201143 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5445293435434794618, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+  m_PrefabInstance: {fileID: 1231201140}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1231201144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1231201143}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 20
+    m_Right: 0
+    m_Top: 16
+    m_Bottom: 0
+  m_ChildAlignment: 0
+  m_Spacing: 30
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 0
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &1234528381
 GameObject:
   m_ObjectHideFlags: 0
@@ -15427,6 +15505,7 @@ MonoBehaviour:
   isOpen: 0
   bagUI: {fileID: 1351306607}
   uiClickSound: {fileID: 3331585992580060079, guid: 598312740451e4c46a97023695167839, type: 3}
+  openInveSound: {fileID: 3331585992580060079, guid: a85a29a05dbba4c0db6616b8d2ef8376, type: 3}
 --- !u!114 &1309763777
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15445,6 +15524,7 @@ MonoBehaviour:
   itemPickup: {fileID: 0}
   hintText: {fileID: 1910666472}
   hintvfx: {fileID: 205964822}
+  unlockSound: {fileID: 3331585992580060079, guid: c2ab36c3d1c8c440aa4c2e3e8a607132, type: 3}
 --- !u!1 &1329255661
 GameObject:
   m_ObjectHideFlags: 0

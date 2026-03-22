@@ -13,6 +13,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject bagUI;
 
     public GameObject uiClickSound;
+    public GameObject openInveSound;
 
     void Start(){
 
@@ -55,6 +56,6 @@ public class PlayerMove : MonoBehaviour
     { 
         isOpen = !isOpen; 
         bagUI.SetActive(isOpen);
-        Instantiate(uiClickSound, Vector3.zero, Quaternion.identity);
+        Instantiate(openInveSound, Vector3.zero, Quaternion.identity);
     }
 }

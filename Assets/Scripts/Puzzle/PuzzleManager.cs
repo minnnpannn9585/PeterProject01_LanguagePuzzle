@@ -1,56 +1,129 @@
+using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-// 拼图管理器：仅检测关键碎片是否全部就位（且放到正确位置）
 public class PuzzleManager : MonoBehaviour
 {
-    [Header("管理器配置")]
-    public PuzzlePiece[] allPuzzlePieces; // 所有拼图碎片（10个：2个关键+8个干扰）
-    public Text completionText; // 完成提示文本（可选）
+    [Header("UI/生成配置")]
+    public PuzzlePiece piecePrefab;              // 拼图碎片预制体（必须带 PuzzlePiece 组件）
+    public RectTransform piecesRoot;             // 生成碎片的父节点（拼图面板中的容器）
+    public bool buildOnStart = true;             // 是否在 Start 时自动生成
+    public bool clearChildrenBeforeBuild = true; // 生成前是否清空旧的子物体
 
-    void Start()
+    [Header("管理器配置")]
+    public Text completionText;                  // 完成提示文本（可选）
+
+    [Header("运行时数据（自动填充）")]
+    public PuzzlePiece[] allPuzzlePieces;        // 不再手动拖拽，改为运行时生成后填充
+
+    private void Start()
     {
-        // 初始化提示文本
         if (completionText != null)
         {
             completionText.text = "拼图中...";
             completionText.gameObject.SetActive(true);
         }
+
+        if (buildOnStart)
+        {
+            BuildPiecesFromInventory();
+        }
     }
 
-    // 检测拼图是否全部完成（仅检查关键碎片是否放到正确位置）
+    /// <summary>
+    /// 根据玩家背包（InventoryManager.Instance.inventorySlots）自动创建拼图碎片
+    /// \- 碎片本体不放图片
+    /// \- 名字写到碎片的子物体 TMP\_Text 上显示
+    /// </summary>
+    public void BuildPiecesFromInventory()
+    {
+        if (piecePrefab == null || piecesRoot == null)
+        {
+            Debug.LogWarning("[PuzzleManager] piecePrefab 或 piecesRoot 未设置，无法生成拼图碎片。");
+            return;
+        }
+
+        if (InventoryManager.Instance == null || InventoryManager.Instance.inventorySlots == null)
+        {
+            Debug.LogWarning("[PuzzleManager] InventoryManager 或 inventorySlots 为空，无法生成拼图碎片。");
+            allPuzzlePieces = new PuzzlePiece[0];
+            return;
+        }
+
+        if (clearChildrenBeforeBuild)
+        {
+            for (int i = piecesRoot.childCount - 1; i >= 0; i--)
+            {
+                Destroy(piecesRoot.GetChild(i).gameObject);
+            }
+        }
+
+        var created = new List<PuzzlePiece>();
+
+        foreach (var item in InventoryManager.Instance.inventorySlots)
+        {
+            if (item == null) continue;
+
+            PuzzlePiece piece = Instantiate(piecePrefab, piecesRoot);
+            piece.puzzleManager = this;
+
+            // 碎片 id \= 物品 id（用于和 PuzzleTarget.targetID 匹配）
+            piece.pieceID = item.itemID;
+
+            // 名字显示：写到子物体上的 TMP_Text（不依赖 Image）
+            TMP_Text nameText = piece.GetComponentInChildren<TMP_Text>(true);
+            if (nameText != null)
+            {
+                nameText.text = item.itemName;
+            }
+            else
+            {
+                Debug.LogWarning($"[PuzzleManager] 未在 PuzzlePiece 预制体子物体中找到 TMP_Text，无法显示名字。pieceID={piece.pieceID}");
+            }
+
+            created.Add(piece);
+        }
+
+        allPuzzlePieces = created.ToArray();
+
+        Debug.Log($"[PuzzleManager] BuildPiecesFromInventory: createdPieces={allPuzzlePieces.Length}");
+    }
+
     public void CheckPuzzleCompletion()
     {
+        if (allPuzzlePieces == null || allPuzzlePieces.Length == 0)
+            return;
+
         bool isAllComplete = true;
 
-        // 遍历所有碎片，只检查关键碎片是否“正确”就位
         foreach (PuzzlePiece piece in allPuzzlePieces)
         {
+            if (piece == null) continue;
+
             if (piece.IsRequiredPiece() && !piece.IsSnappedCorrectly())
             {
-                // 只要有一个关键碎片未正确就位，就判定未完成
                 isAllComplete = false;
                 break;
             }
         }
 
-        // 所有关键碎片放到正确位置则提示成功
-        if (isAllComplete)
+        if (isAllComplete && completionText != null)
         {
-            if (completionText != null)
-            {
-                completionText.text = "拼图成功！";
-            }
+            completionText.text = "拼图成功！";
         }
     }
 
-    // 重新开始游戏（可选）
     public void RestartPuzzle()
     {
-        foreach (PuzzlePiece piece in allPuzzlePieces)
+        if (allPuzzlePieces != null)
         {
-            piece.ResetPiece();
+            foreach (PuzzlePiece piece in allPuzzlePieces)
+            {
+                if (piece != null) piece.ResetPiece();
+            }
         }
+
         if (completionText != null)
         {
             completionText.text = "拼图中...";

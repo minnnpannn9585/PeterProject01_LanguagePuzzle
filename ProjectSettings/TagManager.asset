@@ -8,6 +8,8 @@ TagManager:
   - Puzzle
   - PuzzleTarget
   - ItemUI
+  - kill
+  - score
   layers:
   - Default
   - TransparentFX
@@ -15,7 +17,7 @@ TagManager:
   - 
   - Water
   - UI
-  - 
+  - MyGround
   - 
   - 
   - 

@@ -14568,6 +14568,18 @@ PrefabInstance:
       propertyPath: allPuzzlePieces.Array.data[9]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 5091034303571973138, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091034303571973138, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -327
+      objectReference: {fileID: 0}
+    - target: {fileID: 5091034303571973138, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -159
+      objectReference: {fileID: 0}
     - target: {fileID: 5353889242563693179, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
       propertyPath: m_Name
       value: PuzzlePiece
@@ -14587,6 +14599,18 @@ PrefabInstance:
     - target: {fileID: 7183935523801254475, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
       propertyPath: m_AnchorMin.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188760556212799709, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188760556212799709, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -40
+      objectReference: {fileID: 0}
+    - target: {fileID: 7188760556212799709, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -159
       objectReference: {fileID: 0}
     - target: {fileID: 7637748767454876876, guid: 5dd1fddce59c61f41aa2b48474246744, type: 3}
       propertyPath: m_AnchorMax.x

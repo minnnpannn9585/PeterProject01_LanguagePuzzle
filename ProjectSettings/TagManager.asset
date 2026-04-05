@@ -10,6 +10,7 @@ TagManager:
   - ItemUI
   - kill
   - score
+  - npc
   layers:
   - Default
   - TransparentFX
